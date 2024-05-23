@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-oswald {
+  font-family: "Oswald", sans-serif;
+}
+.font-raleway{
+  font-family: "Raleway", sans-serif;
+}
+#sidebar a.active {
+color: #e3b781;
+border: 2px solid #1A4D2E;
+ background-color: #1A4D2E;
+}
+#sidebar a.active:hover{
+  background-color: #1A4D2E;
+  color:#ffe4c4;
+}
