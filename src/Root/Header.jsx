@@ -1,8 +1,12 @@
 
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, } from 'react-router-dom';
 import logo from '../assets/Good-food-logo-design-on-transparent-background-PNG.png'
 import { PiDotsThreeCircleVerticalFill } from "react-icons/pi";
+import UseAuth from '../hook/useAuth';
+import { Tooltip } from 'react-tooltip'
 const Header = () => {
+    const {logOut,user} = UseAuth()
+   
     const navlinks = <>
     <li className={`font-oswald text-xs lg:text-lg ml-5   `}  id="sidebar"><NavLink to={"/"}>Home</NavLink></li>
     <li className={`font-oswald text-xs lg:text-lg ml-5  `} id="sidebar"><NavLink to={"/alltouristspot"}>Available Food</NavLink></li>
@@ -43,8 +47,8 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  {/* {
-      user? <div className="flex items-center gap-1">
+  
+      {user? <div className="flex items-center gap-1">
         <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full my-anchor-element ">
@@ -73,7 +77,7 @@ const Header = () => {
      
      </div>
      
-      </div>: */}
+      </div>:
     
   <div className="dropdown dropdown-end ml-2">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -90,7 +94,7 @@ const Header = () => {
    
       </ul>
     </div>
-{/* } */}
+}
   
   </div>
 </div></div>
