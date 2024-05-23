@@ -1,13 +1,6 @@
-
-
-
-
-
-
-
 import { FaXTwitter, FaInstagram, FaFacebookF } from "react-icons/fa6";
 import { MdAddCall, MdMarkEmailRead, MdOutlineAddLocationAlt   } from "react-icons/md";
-
+import logo from '../assets/Good-food-logo-design-on-transparent-background-PNG.png'
 
 const Footer = () => {
 
@@ -19,8 +12,9 @@ const Footer = () => {
     <div className="  w-full">
    <div className="p-10 flex gap-5 flex-col md:flex-row md:justify-between items-center bg-gray-300 dark:bg-gray-900">
     <div className="text-black font-raleway font-ubuntu font-extrabold">
-  
-   <h1 className="text-5xl text-black">Food<span className="gap-9 text-[#D83F31]">King</span></h1>
+    <div className="flex flex-row items-center">
+    <img src={logo} className="md:h-16 h-8 w-auto" alt="Logo" />
+   <h1 className="text-5xl font-oswald text-black">Food<span className="text-green-800">King</span></h1></div>
    <p  className="mt-5 mb-5 text-base md:text lg">Stay Connected with FoodKing</p>
    <p className=" text-base md:text lg"> Connect with fellow food enthusiasts, share your recipes, and join in on exciting discussions.</p>
     </div>
