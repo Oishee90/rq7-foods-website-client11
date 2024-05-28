@@ -9,11 +9,11 @@ const Header = () => {
    
     const navlinks = <>
     <li className={`font-oswald text-xs lg:text-lg ml-5   `}  id="sidebar"><NavLink to={"/"}>Home</NavLink></li>
-    <li className={`font-oswald text-xs lg:text-lg ml-5  `} id="sidebar"><NavLink to={"/alltouristspot"}>Available Food</NavLink></li>
-    <li className={`font-oswald text-xs lg:text-lg ml-5  `}id="sidebar" ><NavLink to={"/addtourist"}> All Food </NavLink></li>
-    <li className={`font-oswald text-xs lg:text-lg ml-5  `}id="sidebar" ><NavLink to={"/addtourist"}> My Food Request </NavLink></li>
+    <li className={`font-oswald text-xs lg:text-lg ml-5  `} id="sidebar"><NavLink to={"/availableFood"}>Available Food</NavLink></li>
+    <li className={`font-oswald text-xs lg:text-lg ml-5  `}id="sidebar" ><NavLink to={"/addFood"}> Add Food </NavLink></li>
+    <li className={`font-oswald text-xs lg:text-lg ml-5  `}id="sidebar" ><NavLink to={"/myRequest"}> My Food Request </NavLink></li>
    
-    <li className={`font-oswald text-xs lg:text-lg ml-5" "  `} id="sidebar"> <NavLink to={"/mylist"}>My List</NavLink></li>
+    <li className={`font-oswald text-xs lg:text-lg ml-5  `} id="sidebar"> <NavLink to={"/mylist"}>My List</NavLink></li>
 
     
   </>

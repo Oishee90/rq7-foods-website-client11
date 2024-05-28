@@ -20,3 +20,7 @@ border: 2px solid #1A4D2E;
   background-color: #1A4D2E;
   color:#ffe4c4;
 }
+.hover-zoom:hover {
+  transform: scale(1.05); /* You can adjust the scale factor as needed */
+  transition: transform 0.3s ease; /* Add a smooth transition for the zoom effect */
+}

@@ -1,9 +1,18 @@
 import hero from "../../assets/flame-grilled-meat-cooking-flames-generative-ai-removebg-preview.png"
-
+import  { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Hero = () => {
+    useEffect(() => {
+        AOS.init({
+          duration: 1000, // Animation duration
+          easing: 'ease-in-out', // Easing function
+         // Whether animation should happen only once - while scrolling down
+        });
+      }, []);
     return (
         <div>
-                  <div className="hero h-[500px]  mb-10 bg-[#0C0C0C]">
+                  <div className="hero h-[500px]  mb-10 bg-[#0C0C0C]"data-aos="fade-up">
   <div className="hero-content h-full flex-col lg:flex-row-reverse text-white mb-5">
     <img src={hero} className="w-[50%] h-full rounded-lg shadow-2xl " />
     <div className="mb-5">

@@ -57,7 +57,7 @@ const Banner = () => {
     loop: true,
   }}
 /></p>
-    <Link className="inline-block px-6 py-3  text-white font-semibold rounded-full shadow-lg bg-green-700 hover:bg-green-800 transition duration-300 ease-in"> Explore now</Link>
+    <Link to={"/featuredFood"} className="inline-block px-6 py-3  text-white font-semibold rounded-full shadow-lg bg-green-700 hover:bg-green-800 transition duration-300 ease-in"> Explore now</Link>
   </div>
   </div>
           </div>
@@ -85,7 +85,7 @@ const Banner = () => {
     loop: true,
   }}
 /></p>
-    <Link className="inline-block px-6 py-3  text-white font-semibold rounded-full shadow-lg bg-green-700 hover:bg-green-800 transition duration-300 ease-in"> Explore now</Link>
+    <Link to={"/featuredFood"} className="inline-block px-6 py-3  text-white font-semibold rounded-full shadow-lg bg-green-700 hover:bg-green-800 transition duration-300 ease-in"> Explore now</Link>
   </div>
   </div>
           </div>
@@ -109,7 +109,7 @@ const Banner = () => {
     loop: true,
   }}
 /></p>
-    <Link className="inline-block px-6 py-3  text-white font-semibold rounded-full shadow-lg bg-green-700 hover:bg-green-800 transition duration-300 ease-in"> Explore now</Link>
+    <Link to={"/featuredFood"} className="inline-block px-6 py-3  text-white font-semibold rounded-full shadow-lg bg-green-700 hover:bg-green-800 transition duration-300 ease-in"> Explore now</Link>
   </div>
   </div>
           </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import backgroundImage from '../assets/chad-montano-MqT0asuoIcU-unsplash.jpg';
+import backgroundImage from '../assets/lily-banse--YHSwy6uqvk-unsplash.jpg';
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { useForm } from "react-hook-form";
@@ -63,13 +63,13 @@ const Register = () => {
          backgroundPosition: 'center',  }}>
   <div className="text-center w-1/2 mt-5 mb-5 ">
    
-    <div className="card shadow-2xl w-full glass ">
-        <h1 className="font-bold text-xl md:text-2xl mt-5 font-raleway text-[#FCFFE0]">Create An Account</h1>
+    <div className="card shadow-2xl w-full bg-white ">
+        <h1 className="font-bold text-xl md:text-2xl mt-5 font-raleway text-green-700">Create An Account</h1>
      
       <form className="card-body"  onSubmit={handleSubmit(onSubmit)}>
       <div className="form-control">
           <label className="label">
-            <span className="label-text font-raleway text-base md:text-lg font-bold text-white">Name</span>
+            <span className="label-text font-raleway text-base md:text-lg font-bold text-black">Name</span>
           </label>
           <input type="text"name="fullName" {...register("fullName", { required: true })} placeholder="Enter Your Name" 
           className="input input-bordered border-green-200 bg-gray-50 placeholder:font-raleway placeholder:text-xs  placeholder:md:text-lg placeholder:text-bold placeholder:text-gray-300  "/>
@@ -78,7 +78,7 @@ const Register = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span  className="label-text font-raleway text-base md:text-lg font-bold text-white">Email</span>
+            <span  className="label-text font-raleway text-base md:text-lg font-bold text-black">Email</span>
           </label>
           <input type="email" name="fullName" placeholder="Enter Your Email"  {...register("email", { required: true })}
            className="input input-bordered  border-green-200 bg-gray-50  placeholder:font-raleway  placeholder:text-xs placeholder:md:text-lg placeholder:text-bold placeholder:text-gray-300 
@@ -88,7 +88,7 @@ const Register = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-raleway text-base md:text-lg font-bold text-white">Photo Url</span>
+            <span className="label-text font-raleway text-base md:text-lg font-bold text-black">Photo Url</span>
           </label>
           <input type="text" placeholder="Url"{...register("image", { required: true })}
            className="input input-bordered border-green-200 bg-gray-50 placeholder:font-raleway  placeholder:text-xs placeholder:md:text-lg placeholder:text-bold placeholder:text-gray-300 " />
@@ -97,14 +97,14 @@ const Register = () => {
         </div>
         <div className="form-control  relative">
        <label className="label">
-         <span className="label-text font-raleway text-base md:text-lg font-bold text-white">Password</span>
+         <span className="label-text font-raleway text-base md:text-lg font-bold text-black">Password</span>
          
        </label>
        
        <input 
           type = {showpassword ? "text" : "password"}
           placeholder="password" {...register("password", { required: true })}
-          className="border-green-200  input input-bordered    placeholder:font-raleway  placeholder:text-xs placeholder:md:text-lg placeholder:font-medium placeholder:text-gray-300"  />
+          className="border-green-200  input input-bordered bg-gray-50    placeholder:font-raleway  placeholder:text-xs placeholder:md:text-lg placeholder:font-medium placeholder:text-gray-300"  />
        <p onClick={() => setShowpassword(!showpassword)} className="absolute top-[66%] left-[82%] md:left-[94%]">
         {
           showpassword ? <FaEyeSlash className="h-[100%] text-black" /> :<FaEye className="h-[100%] text-black" ></FaEye>
@@ -118,10 +118,10 @@ const Register = () => {
      </div>
         
         <div className="form-control mt-6">
-          <button className="btn border-none transition duration-1000 ease-in  cursor-pointer bg-[#D83F31] hover:bg-[#b2281b] font-raleway text-xs md:text-lg font-bold text-white">Create An Acoount</button>
+          <button className="btn border-none transition duration-1000 ease-in  cursor-pointer bg-[#ffa52fec]  hover:bg-[#ffa52f]  font-raleway text-xs md:text-lg font-bold text-white">Create An Acoount</button>
         </div>
         <div className="form-control mt-6">
-        <p className="text-left font-raleway text-xs md:text-lg font-bold text-white">Already Have An Account? <Link to={'/login'} className="text-[#56b6e7]">Login Here</Link></p>
+        <p className="text-left font-raleway text-xs md:text-lg font-bold text-black">Already Have An Account? <Link to={'/login'} className="text-green-700">Login Here</Link></p>
         </div>
       </form>
       <ToastContainer/>
