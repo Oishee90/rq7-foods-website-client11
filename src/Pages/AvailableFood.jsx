@@ -6,8 +6,11 @@ import 'aos/dist/aos.css';
 import quantity from "../assets/dinner_4686140.png";
 import location from "../assets/placeholder_819814.png";
 import ExpireDate from "../assets/expired_5632472.png";
+import { motion } from 'framer-motion';
 const AvailableFood = () => {
     const [foods, setFoods] = useState([]);
+    const [order, setOrder] = useState("");
+    const [isThreeColumnLayout, setIsThreeColumnLayout] = useState(true);
     useEffect(() => {
         AOS.init({
           duration: 1000, // Animation duration
@@ -15,6 +18,26 @@ const AvailableFood = () => {
          // Whether animation should happen only once - while scrolling down
         });
       }, []);
+     
+ 
+      const handleSortChange = (e) => {
+        const selectedSortOrder = e.target.value;
+        setOrder(selectedSortOrder);
+
+        const sortedFoods = [...foods].sort((a, b) => {
+            const dateA = new Date(a.expiredDateTime);
+            const dateB = new Date(b.expiredDateTime);
+
+            if (selectedSortOrder === "ascending") {
+                return dateA - dateB;
+            } else if (selectedSortOrder === "descending") {
+                return dateB - dateA;
+            }
+            return 0;
+        });
+
+        setFoods(sortedFoods);
+    };
       useEffect(() => {
         fetch('http://localhost:5001/addFood')
             .then(res => res.json())
@@ -24,6 +47,9 @@ const AvailableFood = () => {
                 // setSortedFoods(availableFoods);
             });
     }, []);
+    const toggleLayout = () => {
+        setIsThreeColumnLayout(!isThreeColumnLayout);
+    };
     console.log(foods)
   return (
     <div className="container mx-auto mt-20 mb-20">
@@ -68,17 +94,17 @@ const AvailableFood = () => {
       <div className="flex items-center justify-between gap-6 font-raleway">
         
       <div className="flex ">
-                <select className="p-2 border border-green-300 rounded-md">
+                <select className="p-2 border border-green-300 rounded-md" value={order} onChange={handleSortChange} >
                 {/* //   value={order} onChange={handleSortChange}> */}
-                    <option value="">Sort by Cost</option>
-                    <option value="ascending">Minimum Cost</option>
-                    <option value="descending">Maximum Cost</option>
+                    <option value="">Sort by Expire Date</option>
+                    <option value="ascending">Minimum Expire Date</option>
+                    <option value="descending">Maximum Expire Date</option>
                 </select>
             </div>
       <div>
       <button 
     className="text-base p-2 border border-green-400 bg-white  hover:bg-green-500 text-black rounded-lg"
-                    // onClick={toggleLayout}
+                    onClick={toggleLayout}
                 >
                     Change Layout
                 </button>
@@ -87,110 +113,51 @@ const AvailableFood = () => {
        {/* sort and toogle end*/}
        </div>
        {/* card start */}
-       <div  className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12' data-aos="fade-up-left">
-       <div className="card   bg-purple-100 text-black hover:bg-white shadow-lg borde hover:text-black border-blue-100 hover:border-purple-700 hover:transition hover:duration-1000 ease-in  cursor-pointer hover:shadow-2xl">
-  <figure><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-  <div className="felx flex-col gap-3">
- 
-    <h2 className="card-title font-extrabold font-oswald w-1/2">Pasta :</h2>
-    <div className=' border-b-2 h-px w-[61px]   border-green-700 mb-2 '></div>
-            
-          
-    <p className="mb-4 font-raleway">Contains gluten and dairy.</p>
-<p className="flex items-center gap-2 mt-3 font-raleway text-base  font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={quantity} alt="" /></span> Serve 5 person</p>
-<p className="flex items-center gap-2 mt-3 font-raleway text-base font-medium ml-6"> <span className=" w-5"><img className="w-full " src={ExpireDate} alt="" /></span>2024-06-01 12:00 PM</p>
-<p className="flex items-center gap-2 mt-3 font-raleway text-base font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={location} alt="" /></span>123 Food Street, Cityville</p>
+       <motion.div  className={isThreeColumnLayout ? 'grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10' : 'grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10'}
+                layout
+                transition={{ duration: 0.5 }} >
+     {
 
-<div className="flex items-center gap-3 mt-4 mb-4">
-<div className="avatar">
-  <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-  </div>
-</div>
-            <div>
-              <div className="font-bold">Hart Hagerty</div>
-            
-            </div>
-          </div>
-<div className="card-actions justify-end">
-      <button className="btn font-raleway text-xs font-bold rounded-xl bg-green-50 hover:bg-[#FFA62F] transition-all duration-300 ease-in-out border border-[#FFA62F]">View Details</button>
-   
-    </div>
-  </div>
-  </div>
-
-       </div>
+        foods.map(food => 
+        <motion.div key={food._id} data-aos="fade-up-left"  className="card   bg-green-100  text-black hover:bg-white shadow-lg borde hover:text-black border-blue-100 hover:border-purple-700 hover:transition hover:duration-1000 ease-in  cursor-pointer hover:shadow-2xl">
+        <figure><img src={food.foodImage} alt="Food" /></figure>
+        <div className="card-body">
+        <div className="felx flex-col gap-3">
+       
+          <h2 className="card-title font-extrabold font-oswald w-1/2">{food.foodName}:</h2>
+          <div className=' border-b-2 h-px w-[61px]   border-green-700 mb-2 '></div>
+                  
+                
+          <p className="mb-4 font-raleway">{food.additionalNotes}.</p>
+      <p className="flex items-center gap-2 mt-3 font-oswald text-base  font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={quantity} alt="" /></span> Serve {food.foodQuantity} person</p>
+      <p className="flex items-center gap-2 mt-3 font-oswald text-base font-medium ml-6"> <span className=" w-5"><img className="w-full " src={ExpireDate} alt="" /></span>Expire Date: {new Date(food.expiredDateTime).toLocaleDateString()}</p>
+      <p className="flex items-center gap-2 mt-3 font-oswald text-base font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={location} alt="" /></span>Location: {food.pickupLocation}</p>
       
-       <div className="card   bg-purple-100 text-black hover:bg-white shadow-lg borde hover:text-black border-blue-100 hover:border-purple-700 hover:transition hover:duration-1000 ease-in  cursor-pointer hover:shadow-2xl">
-  <figure><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-  <div className="felx flex-col gap-3">
- 
-    <h2 className="card-title font-extrabold font-oswald w-1/2">Pasta :</h2>
-    <div className=' border-b-2 h-px w-[61px]   border-green-700 mb-2 '></div>
-            
-          
-    <p className="mb-4 font-raleway">Contains gluten and dairy.</p>
-<p className="flex items-center gap-2 mt-3 font-raleway text-base  font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={quantity} alt="" /></span> Serve 5 person</p>
-<p className="flex items-center gap-2 mt-3 font-raleway text-base font-medium ml-6"> <span className=" w-5"><img className="w-full " src={ExpireDate} alt="" /></span>2024-06-01 12:00 PM</p>
-<p className="flex items-center gap-2 mt-3 font-raleway text-base font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={location} alt="" /></span>123 Food Street, Cityville</p>
-
-<div className="flex items-center gap-3 mt-4 mb-4">
-<div className="avatar">
-  <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-  </div>
-</div>
-            <div>
-              <div className="font-bold">Hart Hagerty</div>
-            
-            </div>
-          </div>
-<div className="card-actions justify-end">
-      <button className="btn font-raleway text-xs font-bold rounded-xl bg-green-50 hover:bg-[#FFA62F] transition-all duration-300 ease-in-out border border-[#FFA62F]">View Details</button>
-   
-    </div>
-  </div>
-  </div>
-
-       </div>
-
-       <div className="card   bg-purple-100 text-black hover:bg-white shadow-lg borde hover:text-black border-blue-100 hover:border-purple-700 hover:transition hover:duration-1000 ease-in  cursor-pointer hover:shadow-2xl">
-  <figure><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-  <div className="felx flex-col gap-3">
- 
-    <h2 className="card-title font-extrabold font-oswald w-1/2">Pasta :</h2>
-    <div className=' border-b-2 h-px w-[61px]   border-green-700 mb-2 '></div>
-            
-          
-    <p className="mb-4 font-raleway">Contains gluten and dairy.</p>
-<p className="flex items-center gap-2 mt-3 font-raleway text-base  font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={quantity} alt="" /></span> Serve 5 person</p>
-<p className="flex items-center gap-2 mt-3 font-raleway text-base font-medium ml-6"> <span className=" w-5"><img className="w-full " src={ExpireDate} alt="" /></span>2024-06-01 12:00 PM</p>
-<p className="flex items-center gap-2 mt-3 font-raleway text-base font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={location} alt="" /></span>123 Food Street, Cityville</p>
-
-<div className="flex items-center gap-3 mt-4 mb-4">
-<div className="avatar">
-  <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-  </div>
-</div>
-            <div>
-              <div className="font-bold">Hart Hagerty</div>
-            
-            </div>
-          </div>
-<div className="card-actions justify-end">
-      <button className="btn font-raleway text-xs font-bold rounded-xl bg-green-50 hover:bg-[#FFA62F] transition-all duration-300 ease-in-out border border-[#FFA62F]">View Details</button>
-   
-    </div>
-  </div>
-  </div>
-
-       </div>
-
+      <div className="flex items-center gap-3 mt-4 mb-4">
+      <div className="avatar">
+        <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+          <img src={food.donatorImage} />
+        </div>
       </div>
+                  <div>
+                    <div className=" text-base font-raleway font-medium">{food.name}</div>
+                    <div className="text-base font-raleway font-medium">{food.email}</div>
+                  
+                  </div>
+                </div>
+      <div className="card-actions justify-end">
+            <button className="btn font-raleway text-xs font-bold rounded-xl bg-green-50 hover:bg-[#FFA62F] transition-all duration-300 ease-in-out border border-[#FFA62F]">View Details</button>
+         
+          </div>
+        </div>
+        </div>
+      
+             </motion.div>)
+     }
+      
+   
+       
+      </motion.div>
             </div>
 </div>
 

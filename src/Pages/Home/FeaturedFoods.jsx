@@ -26,7 +26,7 @@ const FeaturedFoods = () => {
         
       </div>
     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5  container mx-auto " >
-        <div className="card card-side bg-[#FFA62F] rounded-lg border border-transparent hover:bg-green-50 hover:border-green-300 hover:shadow-2xl transition-all duration-300 ease-in-out" data-aos="fade-up-left">
+        <div className="card card-side bg-[#f9b153] rounded-lg border border-transparent hover:bg-green-50 hover:border-green-300 hover:shadow-2xl transition-all duration-100 ease-in-out" data-aos="fade-up-left">
   <figure className="w-1/2"><img src={card1} className="w-full h-full" alt="Movie"/></figure>
   <div className="felx flex-col gap-3 p-1 ml-3 mb-3 mr-3 mt-3">
   <div className="flex items-center gap-3 mt-4 mb-4">

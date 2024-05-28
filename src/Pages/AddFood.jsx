@@ -16,7 +16,7 @@ const AddFood = () => {
         const name = user.displayName;
         const foodStatus = "available";
         const donatorImage = user.photoURL;
-        const info = { foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, email, name, foodStatus, donatorImage };
+        const info = { foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, foodStatus, donator : {email, name ,donatorImage} };
        console.log(info)
        fetch("http://localhost:5001/addFood", {
     method: "POST",
