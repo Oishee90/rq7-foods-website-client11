@@ -17,9 +17,12 @@ import AvailableFood from './Pages/AvailableFood';
 import AddFood from './Pages/AddFood';
 import MyRequest from './Pages/MyRequest';
 import MyFood from './Pages/MyFood';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 
 import FirebaseProvider from './FirebaseProvider/FirebaseProvider';
+import { HelmetProvider } from 'react-helmet-async';
+import Update from './Pages/Update.jsx';
+import FoodDetails from './Pages/FoodDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +47,10 @@ const router = createBrowserRouter([
         element:<Register></Register> ,
       },
       {
+        path: "/food/:id",
+        element:<FoodDetails></FoodDetails>,
+      },
+      {
         path: "/availableFood",
         element:<AvailableFood></AvailableFood>,
       },
@@ -63,15 +70,27 @@ const router = createBrowserRouter([
      <MyFood></MyFood>
       </PrivateRoute>,
       },
+      {
+        path: "/update/:id",
+        element:
+        <PrivateRoute>
+     <Update></Update>
+      </PrivateRoute>
+       ,
+       
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <HelmetProvider>
     <FirebaseProvider>
     <RouterProvider router={router} />
     </FirebaseProvider>
+    </HelmetProvider>
+ 
     
   </React.StrictMode>,
 )

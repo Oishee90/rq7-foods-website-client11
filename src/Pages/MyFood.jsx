@@ -3,6 +3,7 @@ import UseAuth from "../hook/useAuth";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
+import { Helmet } from "react-helmet-async"
 
 const MyFood = () => {
     const {user} = UseAuth()
@@ -64,6 +65,7 @@ const MyFood = () => {
    
     return (
         <div className="container mx-auto mt-20 bg-[#faebd9] min-h-screen">
+               <Helmet><title>EoodKing-MyFood</title></Helmet>
          
             <div className="font-ubuntu my-8 text-center space-y-6 mt-10 mb-10">
   <h1 className="text-2xl lg:text-4xl font-ubuntu font-extrabold p-10">Adventures in Your Bucket List</h1>

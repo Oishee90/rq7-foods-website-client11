@@ -47,6 +47,12 @@ const AvailableFood = () => {
                 // setSortedFoods(availableFoods);
             });
     }, []);
+    const truncateText = (text, maxLength) => {
+        if (text.length > maxLength) {
+            return text.slice(0, maxLength) + '...';
+        }
+        return text;
+    };
     const toggleLayout = () => {
         setIsThreeColumnLayout(!isThreeColumnLayout);
     };
@@ -113,14 +119,17 @@ const AvailableFood = () => {
        {/* sort and toogle end*/}
        </div>
        {/* card start */}
-       <motion.div  className={isThreeColumnLayout ? 'grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10' : 'grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10'}
+       <motion.div  className={isThreeColumnLayout ? 'grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10' : 'grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10' }
                 layout
-                transition={{ duration: 0.5 }} >
+                transition={{ duration: 0.5 }} data-aos="fade-up-left" >
      {
 
         foods.map(food => 
-        <motion.div key={food._id} data-aos="fade-up-left"  className="card   bg-green-100  text-black hover:bg-white shadow-lg borde hover:text-black border-blue-100 hover:border-purple-700 hover:transition hover:duration-1000 ease-in  cursor-pointer hover:shadow-2xl">
-        <figure><img src={food.foodImage} alt="Food" /></figure>
+        <motion.div key={food._id}  className="card rounded-lg  bg-green-100  text-black hover:bg-white shadow-lg borde hover:text-black border-blue-100 hover:border-purple-700 hover:transition hover:duration-1000 ease-in  cursor-pointer hover:shadow-2xl">
+        <div className="relative h-[400px]">
+        <figure className="h-full flex flex-grow w-full rounded-lg "><img className="h-full flex-grow w-full " src={food.foodImage} alt="Food" /></figure>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black  "></div>
+        </div>
         <div className="card-body">
         <div className="felx flex-col gap-3">
        
@@ -128,7 +137,7 @@ const AvailableFood = () => {
           <div className=' border-b-2 h-px w-[61px]   border-green-700 mb-2 '></div>
                   
                 
-          <p className="mb-4 font-raleway">{food.additionalNotes}.</p>
+          <p className="mb-4 font-raleway">{truncateText(food.additionalNotes, 100)}</p>
       <p className="flex items-center gap-2 mt-3 font-oswald text-base  font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={quantity} alt="" /></span> Serve {food.foodQuantity} person</p>
       <p className="flex items-center gap-2 mt-3 font-oswald text-base font-medium ml-6"> <span className=" w-5"><img className="w-full " src={ExpireDate} alt="" /></span>Expire Date: {new Date(food.expiredDateTime).toLocaleDateString()}</p>
       <p className="flex items-center gap-2 mt-3 font-oswald text-base font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={location} alt="" /></span>Location: {food.pickupLocation}</p>
@@ -136,12 +145,12 @@ const AvailableFood = () => {
       <div className="flex items-center gap-3 mt-4 mb-4">
       <div className="avatar">
         <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-          <img src={food.donatorImage} />
+          <img className="" src={food.donator.donatorImage} />
         </div>
       </div>
                   <div>
-                    <div className=" text-base font-raleway font-medium">{food.name}</div>
-                    <div className="text-base font-raleway font-medium">{food.email}</div>
+                    <div className=" text-base font-raleway font-medium">{food.donator.name}</div>
+                    <div className="text-base font-raleway font-medium">{food.donator.email}</div>
                   
                   </div>
                 </div>
