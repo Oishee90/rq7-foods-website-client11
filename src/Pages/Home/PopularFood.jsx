@@ -110,21 +110,21 @@ const PopularFood = () => {
           >
             <img src={banner7} alt="" className="h-[400px] w-full object-cover  " />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black  "></div>
-            <h1 className=' text-white font-oswald font-bold text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'> Pasta</h1>
+            <h1 className=' text-white font-oswald font-bold text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'> Vegetable Soup</h1>
         
             </div></SwiperSlide>
         <SwiperSlide>  <div className='relative cursor-pointer'  data-aos="fade-up"
         >
             <img src={banner8} alt="" className="h-[400px] w-full object-cover  " />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black  "></div>
-            <h1 className=' text-white font-oswald font-bold text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'> Pizza</h1>
+            <h1 className=' text-white font-oswald font-bold text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'> Pasta</h1>
         
             </div></SwiperSlide>
         <SwiperSlide>  <div className='relative cursor-pointer' data-aos="fade-up"
           >
             <img src={banner9} alt="" className="h-[400px] w-full object-cover  " />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black  "></div>
-            <h1 className=' text-white font-oswald font-bold text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'> Chawmin</h1>
+            <h1 className=' text-white font-oswald font-bold text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'> Pizza</h1>
         
             </div></SwiperSlide>
       </Swiper>

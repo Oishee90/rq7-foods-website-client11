@@ -88,7 +88,7 @@ const MyFood = () => {
                         <tr key={item.id}>
                             <td className="border font-raleway font-bold hover:bg-purple-200 border-gray-300 px-4 py-2">{item.foodName}</td>
                             <td className="border  font-raleway font-bold hover:bg-purple-200 border-gray-300 px-4 py-2">{item.foodQuantity}</td>
-                            <td className="border  font-raleway font-bold hover:bg-purple-200 border-gray-300 px-4 py-2">{item.expiredDateTime} </td>
+                            <td className="border  font-raleway font-bold hover:bg-purple-200 border-gray-300 px-4 py-2">{new Date(item.expiredDateTime).toLocaleDateString()} </td>
                             <td className="border  font-raleway font-bold hover:bg-purple-200 border-gray-300 px-4 py-2">{item.pickupLocation}</td>
                             <td className="border  font-raleway font-bold border-gray-300 px-4 py-2 flex justify-between space-x-2">
                                 <Link to={`/update/${item._id}`}><button className="transition duration-1000 ease-in  cursor-pointer bg-[#5f2d70de]  hover:bg-[#4d205c] font-ubuntu text-white font-bold py-2 px-4 rounded">

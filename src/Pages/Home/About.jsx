@@ -25,13 +25,13 @@ const About = () => {
                   </p>
             </div>
               <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10  mt-6 mb-20 items-start container mx-auto">
-  <div className="rounded-2xl relative h-full " data-aos="fade-up-left"> 
+  <div className="rounded-2xl relative h-full " data-aos="fade-up"> 
 
       <img className=" items-center rounded-xl h-full  mt-10 mx-auto " src={about} alt="" />
       <div className="absolute mt-10 h-full  rounded-xl inset-0 bg-gradient-to-b from-transparent to-[#03070CB3] "></div>
 
     </div>
-         <div className="flex flex-col mt-5 " data-aos="fade-up-right"> 
+         <div className="flex flex-col mt-5 " data-aos="fade-up"> 
          <h1 className="font-oswald font-bold text-2xl  lg:text-4xl text-green-800 mt-3">Why Choose Us</h1>
          <h1 className="font-oswald font-extrabold text-xl  md:text-5xl text-black mt-7 ">
          Where Quality Meet Excellent <span className="text-green-800">Service</span>.</h1>

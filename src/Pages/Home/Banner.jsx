@@ -48,7 +48,8 @@ const Banner = () => {
     <h1 className="  text-4xl md:text-7xl w-full  text-white font-extrabold font-oswald mb-4 "> At  <span className=''>FoodShare</span ><span className='text-[#FFA62F]'>Hub</span>  
     
 </h1>
-<p className='mt-2 md:mt-5 text-2xl md:text-4xl w-full  text-gray-200 font-extrabold font-oswald md:mb-4'>We're committed to ending hunger one donation at a time. </p>
+<p className='mt-2 md:mt-5 text-lg md:text-2xl lg:text-4xl w-full  text-gray-200 font-extrabold font-oswald md:mb-4'>We're committed to 
+ending hunger one donation at a time. </p>
     <p className=" text-lg font-bold font-oswald mt-2 md:mt-5  mb-3  md:mb-8 text-[#FFA62F] ">
     <Typewriter
   options={{
@@ -95,11 +96,11 @@ const Banner = () => {
             <img src={banner3} alt="" className="h-[700px] w-full object-cover  rounded-lg" />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black  rounded-lg"></div>
             <div  className="  absolute w-full top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center text-white">
-  <div className='text-left'>
-    <h1 className="  text-xl md:text-4xl w-full  text-white font-extrabold font-oswald mb-4 "> Experience the joy of giving and receiving at FoodShareHUb  
+  <div className='text-center md:text-left'>
+    <h1 className="  text-xl md:text-2xl lg:text-4xl w-full  text-white font-extrabold font-oswald mb-4 "> Experience the joy of giving and receiving . 
     
 </h1>
-<p className='mt-2 md:mt-5 text-lg md:text-xl w-full  text-gray-200 font-extrabold font-oswald md:mb-4'>Donate excess food to those who need it most, or reach out if you require assistance.</p>
+<p className='mt-2 md:mt-5 text-base md:text-xl lg:text-2xl w-full  text-gray-200 font-extrabold font-oswald md:mb-4'>Donate excess food to those who need it most, or reach out if you require assistance.</p>
     <p className=" text-lg font-bold font-oswald mt-2 md:mt-5  mb-3  md:mb-8 text-[#FFA62F] ">
     <Typewriter
   options={{

@@ -47,12 +47,7 @@ const AvailableFood = () => {
                 // setSortedFoods(availableFoods);
             });
     }, []);
-    const truncateText = (text, maxLength) => {
-        if (text.length > maxLength) {
-            return text.slice(0, maxLength) + '...';
-        }
-        return text;
-    };
+  
     const toggleLayout = () => {
         setIsThreeColumnLayout(!isThreeColumnLayout);
     };
@@ -137,7 +132,7 @@ const AvailableFood = () => {
           <div className=' border-b-2 h-px w-[61px]   border-green-700 mb-2 '></div>
                   
                 
-          <p className="mb-4 font-raleway">{truncateText(food.additionalNotes, 100)}</p>
+          <p className="mb-4 font-raleway">{food.additionalNotes}</p>
       <p className="flex items-center gap-2 mt-3 font-oswald text-base  font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={quantity} alt="" /></span> Serve {food.foodQuantity} person</p>
       <p className="flex items-center gap-2 mt-3 font-oswald text-base font-medium ml-6"> <span className=" w-5"><img className="w-full " src={ExpireDate} alt="" /></span>Expire Date: {new Date(food.expiredDateTime).toLocaleDateString()}</p>
       <p className="flex items-center gap-2 mt-3 font-oswald text-base font-medium  ml-6"> <span className=" w-5"><img className="w-full " src={location} alt="" /></span>Location: {food.pickupLocation}</p>
