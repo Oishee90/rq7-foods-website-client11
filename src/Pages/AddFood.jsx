@@ -1,4 +1,4 @@
-import bg from "../assets/closeup-shot-deliciously-prepared-chicken-served-with-onions-chili-sauce.jpg";
+import bg from "../assets/woman-offering-food-neighbor.jpg";
 import UseAuth from "../hook/useAuth";
 import Swal from 'sweetalert2'
 

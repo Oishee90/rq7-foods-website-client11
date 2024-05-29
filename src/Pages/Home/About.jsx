@@ -21,8 +21,8 @@ const About = () => {
           <div className='flex flex-col justify-center' data-aos="fade-up">
                 <h1 className='text-center  p-5 text-4xl font-oswald font-semiboldbold'>About Our Food</h1>
                 <div className='justify-center mx-auto border-b-2 h-px w-[81px]  border-green-700 mb-6'></div>
-                <p className='text-center p-5 mx-auto mb-6 text-lg font-raleway '>FoodKing was founded on the principles of quality, creativity, and a love for food. Our chefs are dedicated to crafting dishes that not only satisfy your hunger but also delight your senses. Learn more about our journey and the values that drive us. </p>
-        
+                <p className='text-center p-5 mx-auto mb-6 text-lg font-raleway '> Discover our story, our values, and how you can join us in making a positive impact on the lives of individuals and families in need
+                  </p>
             </div>
               <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10  mt-6 mb-20 items-start container mx-auto">
   <div className="rounded-2xl relative h-full " data-aos="fade-up-left"> 
@@ -35,7 +35,7 @@ const About = () => {
          <h1 className="font-oswald font-bold text-2xl  lg:text-4xl text-green-800 mt-3">Why Choose Us</h1>
          <h1 className="font-oswald font-extrabold text-xl  md:text-5xl text-black mt-7 ">
          Where Quality Meet Excellent <span className="text-green-800">Service</span>.</h1>
-<p className="text-black text-base lg:text-xl font-oswald  mt-6">Its the perfect dining experience where every dish is crafted with fresh, high-quality Experience quick and efficient service that ensures your food is servead fresh Its the dining experience where every dish is crafted with fresh, high-quality ingredients
+<p className="text-black text-base lg:text-xl font-oswald  mt-6">At FoodShareHUb, we prioritize transparency, efficiency, and compassion in all that we do.From our user-friendly platform to our commitment to making a difference in the lives of others, discover why we're the preferred partner in feeding hope and making a meaningful impact in our communities.
 
 </p>
          <div className="flex flex-col ml-3">

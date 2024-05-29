@@ -35,7 +35,7 @@ const Header = () => {
     </div>
     <div className='flex justify-center items-center'>
     <img src={logo} className="md:h-16 h-8 w-auto" alt="Logo" />
-    <a className="text-xl md:text-2xl gap-0 font-oswald font-bold ">FOODKING</a>
+    <a className="text-xl md:text-2xl gap-0 font-oswald font-bold ">FoodShareHub</a>
     </div>
    
   </div>

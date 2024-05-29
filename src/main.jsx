@@ -49,6 +49,7 @@ const router = createBrowserRouter([
       {
         path: "/food/:id",
         element:<FoodDetails></FoodDetails>,
+       
       },
       {
         path: "/availableFood",

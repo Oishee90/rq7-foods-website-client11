@@ -20,8 +20,9 @@ const FeaturedFoods = ({foodItem , truncateText}) => {
   return (
     <div className="container mx-auto " >
 
-        <div className="card card-side bg-yellow-100 rounded-lg border border-transparent hover:bg-green-50 hover:border-green-300 hover:shadow-2xl transition-all duration-100 ease-in-out  " data-aos="fade-up-left">
-  <figure className="w-1/2 flex-shrink-0 "><img src={foodItem.foodImage} className="w-full h-full" alt="Movie"/></figure>
+        <div className="card card-side bg-yellow-100 rounded-lg border border-transparent hover:bg-green-50 hover:border-green-300 hover:shadow-2xl transition-all duration-100 ease-in-out  ">
+  <div className="flex h-[500px]">
+  <figure className="w-1/2 h-[500px] flex-shrink-0 "><img className="h-full" src={foodItem.foodImage} className="w-full h-full" alt="Movie"/></figure>
   <div className="felx flex-col gap-3 p-1 ml-3 mb-3 mr-3 mt-3 flex-grow">
   <div className="flex items-center gap-3 mt-4 mb-4">
 <div className="avatar">
@@ -34,7 +35,7 @@ const FeaturedFoods = ({foodItem , truncateText}) => {
             
             </div>
           </div>
-    <h2 className="card-title font-extrabold font-oswald ">{foodItem.foodName}</h2>
+    <h2 className="card-title font-extrabold font-oswald w-full flex-grow ">{foodItem.foodName}</h2>
     <div className=' border-b-2 h-px w-[61px]   border-green-700 mb-2 '></div>
             
           
@@ -53,6 +54,7 @@ const FeaturedFoods = ({foodItem , truncateText}) => {
   </div>
 </div>
 
+</div>
   </div>
  
   );
