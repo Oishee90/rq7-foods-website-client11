@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import UseAuth from "../hook/useAuth";
-
+import { Helmet } from "react-helmet-async"
 
 const Register = () => {
   const {createUser, updateUserProfile,user  } = UseAuth();
@@ -57,7 +57,7 @@ const Register = () => {
   };
     return (
         <div className="mt-20">
-      
+        <Helmet><title>FoodShare-Register</title></Helmet>
             <div className="hero min-h-screen rounded-xl" style={{ backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})` ,
          backgroundSize: 'cover',
          backgroundPosition: 'center',  }}>

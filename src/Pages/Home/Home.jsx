@@ -5,6 +5,7 @@ import PopularFood from "./PopularFood";
 import Hero from "./Hero";
 import FeaturedFoods from "./FeaturedFoods";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async"
 
 const Home = () => {
     const [foods, setFoods] = useState([])
@@ -29,6 +30,7 @@ const Home = () => {
     };
     return (
         <div className="container mx-auto">
+             <Helmet><title>FoodShare-Home</title></Helmet>
            <Banner></Banner>
            <div className=" mt-32 mb-30 ">
            <div className='flex flex-col justify-center' data-aos="fade-up">

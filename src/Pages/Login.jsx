@@ -11,7 +11,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import UseAuth from '../hook/useAuth';
 import SocialLogIn from './SocialLogin';
-
+import { Helmet } from "react-helmet-async"
 const Login = () => {
   const {signInUser} = UseAuth()
   const [showpassword, setShowpassword] = useState(false)
@@ -51,7 +51,7 @@ const Login = () => {
     return (
   
         <div className='mt-20 container mx-auto'>
-       
+         <Helmet><title>FoodShare-Login</title></Helmet>
         <div className="hero flex lg:flex-row-reverse flex-col-reverse   md:flex-col-reverse min-h-screen bg-white " >
 <div className="text-center justify-start ml-4 w-1/2 mt-5 mb-5 h-full ">
 <h1 className="font-extrabold text-center text-xl md:text-4xl mb-3  font-ubuntu text-black">Login Now!!</h1>

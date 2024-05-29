@@ -1,9 +1,20 @@
 import bg from "../assets/woman-offering-food-neighbor.jpg";
 import UseAuth from "../hook/useAuth";
 import Swal from 'sweetalert2'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
+import { Helmet } from "react-helmet-async"
 
 const AddFood = () => {
     const {user} = UseAuth()
+    useEffect(() => {
+        AOS.init({
+          duration: 1000, // Animation duration
+          easing: 'ease-in-out', // Easing function
+         // Whether animation should happen only once - while scrolling down
+        });
+      }, []);
     const handleAddFood = (e) => {
         e.preventDefault();
         const foodName = e.target.foodName.value;
@@ -37,6 +48,7 @@ const AddFood = () => {
     }
     return (
         <div className="container mx-auto mt-20 mb-20">
+              <Helmet><title>FoodShare-Add Food</title></Helmet>
                  <div data-aos="fade-down"
         className="hero h-[400px] rounded-sm"
         style={{ backgroundImage: `url(${bg})` }}
@@ -46,7 +58,7 @@ const AddFood = () => {
           <div className="">
             <h1 className=" text-4xl md:text-6xl w-full  text-white font-extrabold font-oswald mb-4" data-aos="fade-up">Share Your Culinary Creations</h1>
             <p className="mt-2 md:mt-5 text-base md:text-xl w-full  text-gray-200  font-oswald md:mb-4" data-aos="fade-up">
-            At FoodKing, we believe that great food comes from the heart. Share your culinary creations with our community and let your dishes shine. Whether it is a family recipe or a new experiment, we can't wait to see what you've cooked up!
+            At FoodKing, we believe that great food comes from the heart. Share your culinary creations with our community and let your dishes shine. Whether it is a family recipe or a new experiment, we can not wait to see what you haveve cooked up!
             </p>
         
 </div>
@@ -84,12 +96,14 @@ const AddFood = () => {
                         <div className="join flex-col gap-2 md:w-1/2">
                             <label className="font-raleway font-bold text-xl">Additional Notes</label>
                             <textarea className="input input-bordered join-item w-full" type="text" name="additionalNotes" placeholder="Enter Additional Notes"/>
+                        
                         </div>
                     </div>
                     <div className="flex md:flex-row flex-col gap-6 mt-5">
                         <div className="join flex-col gap-2 md:w-1/2">
                             <label className="font-raleway font-bold text-xl">Your Email</label>
                             <input className="input input-bordered join-item w-full" name="email" value={`${user.email}`} disabled style={{ color: 'black' }}/>
+                        
                         </div>
                         <div className="join flex-col gap-2 md:w-1/2">
                             <label className="font-raleway font-bold text-xl">Your Name</label>

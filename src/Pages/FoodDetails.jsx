@@ -7,9 +7,10 @@ import { useEffect, useState } from "react";
 import bg from "../assets/woman-offering-food-neighbor.jpg";
 import UseAuth from "../hook/useAuth";
 import DatePicker from "react-datepicker";
-
+import Swal from 'sweetalert2'
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import { Helmet } from "react-helmet-async"
 
 const FoodDetails = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -34,24 +35,39 @@ const handleFormSubmit = async e => {
   const expiredDateTime = e.target.expiredDateTime.value;
   const additionalNotes = e.target.additionalNotes.value;
   const email = e.target.email.value;
-  const name = e.target.email.value;
+  const name = e.target.name.value;
+  const donatorImage = food.donator.donatorImage;
   const user_email = e.target.user_email.value
-  const foodStatus = "not available";
+  const foodStatus = "requested";
   const requestDate = startDate
 const reqData ={
   foodId,foodName,foodImage,pickupLocation,expiredDateTime,additionalNotes,user_email,foodStatus,requestDate,
   donator:
-  {email,name }
+  {email,name, donatorImage}
 
 }
 console.log(reqData)
-
+// add req data
+try{
+  const {data} = await axios.post('http://localhost:5001/requiest', reqData)
+  console.log(data)
+}
+catch(err){
+  console.log(err)
+}
+// update data
 try{
   const {data} = await axios.put(`http://localhost:5001/addfood/${id}`,
     reqData
   )
   console.log(data)
-  alert('succesfully change')
+  if(data.modifiedCount > 0){
+    Swal.fire({
+        title: 'Success!',
+        text: 'Update Successfully',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })}
 
 }
 catch(err){
@@ -61,6 +77,7 @@ document.getElementById('my_modal_1').close();
 }
     return (
         <div className="container mx-auto mt-20 mb-20">
+            <Helmet><title>FoodShare-Food Details</title></Helmet>
                   <div data-aos="fade-down"
         className="hero h-[400px] rounded-sm"
         style={{ backgroundImage: `url(${bg})` }}
@@ -103,7 +120,7 @@ document.getElementById('my_modal_1').close();
             <div className='border  h-0 border-gray-400 mt-4 '></div>
             <h1 className="font-bold font-oswald text-2xl ">Explore Food Details</h1> 
             <div className='border-b-2 h-px w-[81px]  border-green-700 '></div>
-            <p className="font-medium font-raleway text-lg">Discover the intricate details of each donation, from the mouthwatering descriptions to the heartfelt stories behind them.Immerse yourself in the world of food donation, where every contribution makes a difference in someone's life.</p>
+            <p className="font-medium font-raleway text-lg">Discover the intricate details of each donation, from the mouthwatering descriptions to the heartfelt stories behind them.Immerse yourself in the world of food donation, where every contribution makes a difference in someones life.</p>
           
             <h2 className='font-oswald font-bold text-xl '>Food Name: <span className="text-green-800  font-bold font-raleway">{food.foodName}</span></h2>
             

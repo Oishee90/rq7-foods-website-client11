@@ -7,6 +7,8 @@ import quantity from "../assets/dinner_4686140.png";
 import location from "../assets/placeholder_819814.png";
 import ExpireDate from "../assets/expired_5632472.png";
 import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async"
 const AvailableFood = () => {
     const [foods, setFoods] = useState([]);
     const [order, setOrder] = useState("");
@@ -54,6 +56,7 @@ const AvailableFood = () => {
     console.log(foods)
   return (
     <div className="container mx-auto mt-20 mb-20">
+       <Helmet><title>FoodShare-Available Food</title></Helmet>
         {/* heading start */}
       <div data-aos="fade-down"
         className="hero h-[400px] rounded-sm"
@@ -150,7 +153,7 @@ const AvailableFood = () => {
                   </div>
                 </div>
       <div className="card-actions justify-end">
-            <button className="btn font-raleway text-xs font-bold rounded-xl bg-green-50 hover:bg-[#FFA62F] transition-all duration-300 ease-in-out border border-[#FFA62F]">View Details</button>
+            <Link to={`/food/${food._id}`}><button className="btn font-raleway text-xs font-bold rounded-xl bg-green-50 hover:bg-[#FFA62F] transition-all duration-300 ease-in-out border border-[#FFA62F]">View Details</button></Link>
          
           </div>
         </div>
