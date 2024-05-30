@@ -88,6 +88,8 @@ console.log(food)
     return (
         <div className="container mx-auto mt-20 mb-20">
              <Helmet><title>FoodShareHub|Update</title></Helmet>
+             <h1 className="text-3xl font-oswald mb-2 font-extrabold text-center">Update Food</h1> 
+             <div className='justify-center mx-auto border-b-2 h-px w-[81px]  border-green-700 mb-6'></div>
           <form onSubmit={handleUpdateFood} className="bg-purple-100 mt-5 p-4 md:p-10 rounded-2xl">
                     <div className="flex md:flex-row flex-col gap-6">
                         <div className="join flex-col gap-2 md:w-1/2">

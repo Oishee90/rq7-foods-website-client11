@@ -65,7 +65,8 @@ const AddFood = () => {
 </div>
 </div>
 <div className="bg-[#faebd9] p-10 md:p-24">
-                <h1 className="text-3xl font-ubuntu font-extrabold text-center">Add Food</h1> 
+                <h1 className="text-3xl font-oswald mb-2 font-extrabold text-center">Add Food</h1> 
+                <div className='justify-center mx-auto border-b-2 h-px w-[81px]  border-green-700 mb-6'></div>
 
                 <form onSubmit={handleAddFood} className="bg-purple-100 mt-5 p-4 md:p-10 rounded-2xl">
                     <div className="flex md:flex-row flex-col gap-6">
