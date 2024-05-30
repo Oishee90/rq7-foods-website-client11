@@ -27,11 +27,11 @@ const FeaturedFoods = ({foodItem , truncateText}) => {
   <div className="flex items-center gap-3 mt-4 mb-4">
 <div className="avatar">
   <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-    <img src={foodItem.donator.donatorImage} />
+    <img src={foodItem.donator &&(foodItem.donator.donatorImage)} />
   </div>
 </div>
             <div>
-              <div className="font-bold">{foodItem.donator.name}</div>
+              <div className="font-bold">{foodItem.donator &&(foodItem.donator.name)}</div>
             
             </div>
           </div>
@@ -40,7 +40,7 @@ const FeaturedFoods = ({foodItem , truncateText}) => {
             
           
     <p className="mb-4 font-raleway">{truncateText(foodItem.additionalNotes, 50)}</p>
-<p className="flex items-center gap-2 mt-3 font-raleway text-base  font-bold"> <span className=" w-5"><img className="w-full " src={quantity} alt="" /></span> Serve {foodItem.foodQuantity}person</p>
+<p className="flex items-center gap-2 mt-3 font-raleway text-base  font-bold"> <span className=" w-5"><img className="w-full " src={quantity} alt="" /></span> Serve {foodItem.foodQuantity} person</p>
 <p className="flex items-center gap-2 mt-3 font-raleway text-base font-bold"> <span className=" w-5"><img className="w-full " src={ExpireDate} alt="" /></span>{new Date(foodItem.expiredDateTime).toLocaleDateString()}</p>
 <p className="flex items-center gap-2 mt-3 font-raleway text-base font-bold"> <span className=" w-5"><img className="w-full " src={location} alt="" /></span>{foodItem.pickupLocation}</p>
 

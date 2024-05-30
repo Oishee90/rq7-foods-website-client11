@@ -63,7 +63,7 @@ console.log(food)
       }
     return (
         <div className="container mx-auto mt-20 mb-20">
-             <Helmet><title>FoodShare-Update Food</title></Helmet>
+             <Helmet><title>FoodShare- Food</title></Helmet>
           <form onSubmit={handleUpdateFood} className="bg-purple-100 mt-5 p-4 md:p-10 rounded-2xl">
                     <div className="flex md:flex-row flex-col gap-6">
                         <div className="join flex-col gap-2 md:w-1/2">

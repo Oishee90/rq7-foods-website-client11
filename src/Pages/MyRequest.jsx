@@ -6,12 +6,13 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import bg from "../assets/woman-offering-food-neighbor.jpg";
 import { Helmet } from "react-helmet-async"
+import { useQuery } from "@tanstack/react-query";
 
 const MyRequest = () => {
     const {user} = UseAuth()
-    const [items,setItem]=useState([])
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    // const [items,setItem]=useState([])
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
     useEffect(() => {
         AOS.init({
           duration: 1000, // Animation duration
@@ -19,25 +20,28 @@ const MyRequest = () => {
          // Whether animation should happen only once - while scrolling down
         });
       }, []);
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                if (user?.email) {
-                    const { data } = await axios.get(`http://localhost:5001/requiest/${user.email}`);
-                    setItem(data);
-                }
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
+      const {
+        data: items = [],
+        isLoading,
+        refetch,
+        isError,
+        error,
 
-        getData();
-    }, [user]);
+      } = useQuery({
+        queryFn: () => getData(),
+        queryKey:['items'],
+      })
+      console.log(items)
+
+        const getData = async () => {
+
+            const { data } = await axios.get(`http://localhost:5001/requiest/${user.email}`);
+           return data
+        }
+  
     console.log(items);
 
-    if (loading) return <div>Loading...</div>;
+    if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     return (
         <div className="container mx-auto mt-24 bg-[#faebd9] min-h-screen">
