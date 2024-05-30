@@ -2,9 +2,7 @@
 
 FoodShareHub is a Community Food Sharing and Surplus Reduction Platform. This platform aims to connect food donors with those in need, helping to reduce food waste and hunger in the community. The project involves a full stack implementation using React, Firebase, Node.js, and MongoDB.
 
-## Project Description 🎖
 
-As a Full Stack Developer for FoodShareHub, you will be responsible for designing, developing, and maintaining our platform. You will utilize cutting-edge technologies such as React, Firebase, Node.js, and MongoDB to create a responsive and user-friendly application.
 
 ## Features
 
