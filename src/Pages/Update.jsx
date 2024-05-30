@@ -14,7 +14,7 @@ const Update = () => {
     const {id} = useParams();
     // const [food, setFood] = useState({});
     const [startDate, setStartDate] = useState(new Date());
-    const { data: food = [], isLoading, isError, error, refetch } = useQuery({
+    const { data: food = [], isLoading, isError, error, } = useQuery({
         queryFn: () => getData(),
         queryKey: ['food',],
     });

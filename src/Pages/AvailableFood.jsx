@@ -9,9 +9,11 @@ import ExpireDate from "../assets/expired_5632472.png";
 import { motion } from 'framer-motion';
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async"
+import axios from "axios";
 const AvailableFood = () => {
     const [foods, setFoods] = useState([]);
     const [order, setOrder] = useState("");
+    const [search, setSearch] = useState("");
     const [isThreeColumnLayout, setIsThreeColumnLayout] = useState(true);
     useEffect(() => {
         AOS.init({
@@ -20,7 +22,22 @@ const AvailableFood = () => {
          // Whether animation should happen only once - while scrolling down
         });
       }, []);
-     
+     useEffect(()=>{
+      const getData = async () => {
+        const {data} = await axios.get (
+          `http://localhost:5001/food?search=${search}`
+        )
+        const availableFoods = data.filter(food => food.foodStatus === 'available');
+        setFoods(availableFoods)
+      }
+      getData()
+     },[search])
+     const handleSearch = (e) => {
+      e.preventDefault ()
+      const text = e.target.search.value
+      setSearch(text)
+      console.log(text)
+     }
  
       const handleSortChange = (e) => {
         const selectedSortOrder = e.target.value;
@@ -40,15 +57,7 @@ const AvailableFood = () => {
 
         setFoods(sortedFoods);
     };
-      useEffect(() => {
-        fetch('http://localhost:5001/addFood')
-            .then(res => res.json())
-            .then(data => {
-                const availableFoods = data.filter(food => food.foodStatus === 'available');
-                setFoods(availableFoods);
-                // setSortedFoods(availableFoods);
-            });
-    }, []);
+  
   
     const toggleLayout = () => {
         setIsThreeColumnLayout(!isThreeColumnLayout);
@@ -82,10 +91,12 @@ const AvailableFood = () => {
                 <p className='text-center p-5 mx-auto mb-6 text-lg font-raleway '>Dive into our array of currently available meals, each designed to tantalize your taste buds. Enjoy the perfect blend of taste and quality in every bite. </p>
        {/* functionality start */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-2">
+          <form onSubmit={handleSearch}>
                 <div className="flex justify-start">
         <div className="relative w-full max-w-md">
           <input
             type="text"
+            name="search"
             placeholder="Search for delicious foods..."
             className="w-full py-3 pl-10 pr-4 text-sm rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
           />
@@ -94,6 +105,7 @@ const AvailableFood = () => {
           </div>
         </div>
       </div>
+      </form>
       {/* sort and toogle start */}
       <div className="flex items-center justify-between gap-6 font-raleway">
         
