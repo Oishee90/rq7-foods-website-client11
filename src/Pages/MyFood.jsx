@@ -75,7 +75,7 @@ const MyFood = () => {
    
     return (
         <div className="container mx-auto mt-20 bg-white min-h-screen">
-        <Helmet><title>FoodShare-MyFood</title></Helmet>
+        <Helmet><title>FoodShareHub|MyFood</title></Helmet>
         <div data-aos="fade-down"
         className="hero h-[400px] rounded-sm"
         style={{ backgroundImage: `url(${bg})` }}

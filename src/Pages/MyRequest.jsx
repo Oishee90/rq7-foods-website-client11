@@ -41,11 +41,11 @@ const MyRequest = () => {
   
     console.log(items);
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <div className="w-1/2 mt-20"><span className="loading loading-spinner text-info"></span></div>;
     if (isError || error) return <div>Error: {error}</div>;
     return (
         <div className="container mx-auto mt-24 bg-[#faebd9] min-h-screen">
-            <Helmet><title>FoodShare-My Request Food</title></Helmet>
+            <Helmet><title>FoodShareHub|My Request Food</title></Helmet>
               <div data-aos="fade-down"
         className="hero h-[400px] rounded-sm"
         style={{ backgroundImage: `url(${bg})` }}

@@ -48,7 +48,7 @@ const AddFood = () => {
     }
     return (
         <div className="container mx-auto mt-20 mb-20">
-             <Helmet><title>FoodShare-Add Food</title></Helmet>
+             <Helmet><title>FoodShareHub|Add Food</title></Helmet>
                  <div data-aos="fade-down"
         className="hero h-[400px] rounded-sm"
         style={{ backgroundImage: `url(${bg})` }}

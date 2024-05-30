@@ -31,7 +31,7 @@ const Home = () => {
     };
     return (
         <div className="container mx-auto">
-             <Helmet><title>FoodShare-Home</title></Helmet>
+             <Helmet><title>FoodShareHub|Home</title></Helmet>
            <Banner></Banner>
            <div className=" mt-32 mb-30 ">
            <div className='flex flex-col justify-center' data-aos="fade-up">

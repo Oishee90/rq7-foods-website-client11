@@ -10,7 +10,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
     console.log(location)
     if(loading){
-        return <div className="w-1/2"><span className="loading loading-spinner text-info"></span></div>
+        return <div className="w-1/2 mt-24"><span className="loading loading-spinner text-info"></span></div>
     }
    
     if(user){

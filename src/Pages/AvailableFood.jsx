@@ -65,7 +65,7 @@ const AvailableFood = () => {
     // console.log(foods)
   return (
     <div className="container mx-auto mt-20 mb-20">
-       <Helmet><title>FoodShare-Available Food</title></Helmet>
+       <Helmet><title>FoodShareHub|Available Food</title></Helmet>
         {/* heading start */}
       <div data-aos="fade-down"
         className="hero h-[400px] rounded-sm"

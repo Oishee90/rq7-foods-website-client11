@@ -81,7 +81,7 @@ const badgeClass = food.foodStatus === 'available'
 
     return (
         <div className="container mx-auto mt-20 mb-20">
-            <Helmet><title>FoodShare-Food Details</title></Helmet>
+            <Helmet><title>FoodShareHub|Food Details</title></Helmet>
                   <div data-aos="fade-down"
         className="hero h-[400px] rounded-sm"
         style={{ backgroundImage: `url(${bg})` }}
