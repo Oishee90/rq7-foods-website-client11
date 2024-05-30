@@ -1,4 +1,4 @@
-import about from "../../assets/dan-gold-E6HjQaB7UEA-unsplash.jpg"
+import about from "../../assets/medium-shot-volunteers-with-food-donations.jpg"
 import { CiCircleCheck } from "react-icons/ci";
 import  { useEffect } from 'react';
 import AOS from 'aos';
@@ -52,10 +52,7 @@ Super Quality Food
           <CiCircleCheck  className="text-green-600 w-[2rem] "/>
           Fresh Ingredients Daily
           </p>
-          <p className="items-center gap-2 text-base lg:text-2xl mt-5 flex font-raleway font-medium text-[#131313B3]">
-          <CiCircleCheck  className="text-green-600 w-[2rem] "/>
-          Professional Chef Consultations
-          </p>
+          
 
          </div>
       

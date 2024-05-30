@@ -35,7 +35,7 @@ const MyRequest = () => {
 
         const getData = async () => {
 
-            const { data } = await axios.get(`http://localhost:5001/requiest/${user.email}`);
+            const { data } = await axios.get(`https://foodking-webserver.vercel.app/requiest/${user.email}`);
            return data
         }
   

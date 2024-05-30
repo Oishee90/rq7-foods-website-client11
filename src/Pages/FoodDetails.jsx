@@ -18,13 +18,13 @@ const FoodDetails = () => {
     const {id} = useParams();
     const [food, setFood] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5001/addfood/${id}`)
+        fetch(`https://foodking-webserver.vercel.app/addfood/${id}`)
         .then(res => res.json())
         .then(data => {
             setFood(data)
         })
     },[id]);
-console.log(food)
+// console.log(food)
 const handleFormSubmit = async e => {
   e.preventDefault()
   const foodId = e.target._id.value;
@@ -46,10 +46,10 @@ const reqData ={
   {email,name, donatorImage}
 
 }
-console.log(reqData)
+// console.log(reqData)
 // add req data
 try{
-  const {data} = await axios.post('http://localhost:5001/requiest', reqData)
+  const {data} = await axios.post('https://foodking-webserver.vercel.app/requiest', reqData)
   console.log(data)
 }
 catch(err){
@@ -57,14 +57,14 @@ catch(err){
 }
 // update data
 try{
-  const {data} = await axios.put(`http://localhost:5001/addfood/${id}`,
+  const {data} = await axios.put(`https://foodking-webserver.vercel.app/addfood/${id}`,
     reqData
   )
-  console.log(data)
+  // console.log(data)
   if(data.modifiedCount > 0){
     Swal.fire({
         title: 'Success!',
-        text: 'Update Successfully',
+        text: 'Requested food Successfully',
         icon: 'success',
         confirmButtonText: 'Cool'
       })}
@@ -75,6 +75,10 @@ catch(err){
 }
 document.getElementById('my_modal_1').close();
 }
+const badgeClass = food.foodStatus === 'available' 
+    ? 'badge bg-green-500 text-white' 
+    : 'badge bg-red-500 text-white';
+
     return (
         <div className="container mx-auto mt-20 mb-20">
             <Helmet><title>FoodShare-Food Details</title></Helmet>
@@ -118,11 +122,13 @@ document.getElementById('my_modal_1').close();
           </div>
            ) }
             <div className='border  h-0 border-gray-400 mt-4 '></div>
-            <h1 className="font-bold font-oswald text-2xl ">Explore Food Details</h1> 
+            <h1 className="font-bold font-oswald text-2xl ">Explore Food Details      <div className={`badge ${badgeClass} ml-2`}>{food.foodStatus}</div></h1> 
             <div className='border-b-2 h-px w-[81px]  border-green-700 '></div>
             <p className="font-medium font-raleway text-lg">Discover the intricate details of each donation, from the mouthwatering descriptions to the heartfelt stories behind them.Immerse yourself in the world of food donation, where every contribution makes a difference in someones life.</p>
           
-            <h2 className='font-oswald font-bold text-xl '>Food Name: <span className="text-green-800  font-bold font-raleway">{food.foodName}</span></h2>
+            <h2 className='font-oswald font-bold text-xl '>Food Name: <span className="text-green-800  font-bold font-raleway">{food.foodName}</span>
+            
+            </h2>
             
           
             <h2 className='font-oswald font-bold text-xl '>Additional Notes: <span className="text-[#131313B3]  font-raleway">{food.additionalNotes} </span></h2>

@@ -8,7 +8,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import banner1 from "../../assets/close-up-banana-bread.jpg"
 import banner2 from "../../assets/burger-hamburger-cheeseburger.jpg"
-import banner3 from "../../assets/leo-roza-P_z_xlMGuEk-unsplash.jpg"
+
 import banner4 from "../../assets/sj-YDvfndOs4IQ-unsplash.jpg"
 import banner5 from "../../assets/view-delicious-ready-eat-meal.jpg"
 import banner6 from "../../assets/high-angle-tasty-pakistani-dish.jpg"
@@ -78,13 +78,7 @@ const PopularFood = () => {
         
             </div>
         </SwiperSlide>
-        <SwiperSlide>  <div className='relative cursor-pointer'   data-aos="fade-up"
-          >
-            <img src={banner3} alt="" className="h-[400px] w-full object-cover  " />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black  "></div>
-            <h1 className=' text-white font-oswald font-bold text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'> Chicken Nugets</h1>
-        
-            </div></SwiperSlide>
+      
         <SwiperSlide>  <div className='relative cursor-pointer' data-aos="fade-up"
       >
             <img src={banner4} alt="" className="h-[400px] w-full object-cover  " />

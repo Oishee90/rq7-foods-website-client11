@@ -25,7 +25,7 @@ const AvailableFood = () => {
      useEffect(()=>{
       const getData = async () => {
         const {data} = await axios.get (
-          `http://localhost:5001/food?search=${search}`
+          `https://foodking-webserver.vercel.app/food?search=${search}`
         )
         const availableFoods = data.filter(food => food.foodStatus === 'available');
         setFoods(availableFoods)
@@ -36,7 +36,7 @@ const AvailableFood = () => {
       e.preventDefault ()
       const text = e.target.search.value
       setSearch(text)
-      console.log(text)
+      // console.log(text)
      }
  
       const handleSortChange = (e) => {
@@ -62,7 +62,7 @@ const AvailableFood = () => {
     const toggleLayout = () => {
         setIsThreeColumnLayout(!isThreeColumnLayout);
     };
-    console.log(foods)
+    // console.log(foods)
   return (
     <div className="container mx-auto mt-20 mb-20">
        <Helmet><title>FoodShare-Available Food</title></Helmet>

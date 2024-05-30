@@ -28,8 +28,8 @@ const AddFood = () => {
         const foodStatus = "available";
         const donatorImage = user.photoURL;
         const info = { foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime, additionalNotes, foodStatus, donator : {email, name ,donatorImage} };
-       console.log(info)
-       fetch("http://localhost:5001/addFood", {
+    //    console.log(info)
+       fetch("https://foodking-webserver.vercel.app/addFood", {
     method: "POST",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify(info)

@@ -6,12 +6,13 @@ import Hero from "./Hero";
 import FeaturedFoods from "./FeaturedFoods";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async"
+import Clients from "./Clients";
 
 const Home = () => {
     const [foods, setFoods] = useState([])
     const foodItems = foods.slice(0,6)
     useEffect(() => {
-    fetch("http://localhost:5001/addFood")
+    fetch("https://foodking-webserver.vercel.app/addFood")
             .then(res => res.json())
             .then(data => {
                 // Sort foods by quantity in descending order
@@ -54,6 +55,7 @@ const Home = () => {
            <About></About>
            <Hero></Hero>
            <PopularFood></PopularFood>
+           <Clients></Clients>
          
         </div>
     );

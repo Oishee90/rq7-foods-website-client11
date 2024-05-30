@@ -21,14 +21,14 @@ const Update = () => {
 
     const getData = async () => {
 
-        const { data } = await axios.get(`http://localhost:5001/addfood/${id}`);
+        const { data } = await axios.get(`https://foodking-webserver.vercel.app/addfood/${id}`);
        return data
     }
 
     const {mutateAsync} = useMutation({   
 
         mutationFn: async ({reqData}) => {
-            const { data } = await axios.put(`http://localhost:5001/addfood/${id}`, reqData);
+            const { data } = await axios.put(`https://foodking-webserver.vercel.app/addfood/${id}`, reqData);
             return data;
         },
     onSuccess : (data) => {

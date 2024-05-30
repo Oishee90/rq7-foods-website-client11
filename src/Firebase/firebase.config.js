@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDMyfM0oU4hisnc794M50ihzZ4wTaReI1k",
-  authDomain: "foodking-website.firebaseapp.com",
-  projectId: "foodking-website",
-  storageBucket: "foodking-website.appspot.com",
-  messagingSenderId: "555566159778",
-  appId: "1:555566159778:web:8be8819553e3f47742c4fb"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain:import.meta.env.VITE_AUTHDOMAIN ,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID ,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
