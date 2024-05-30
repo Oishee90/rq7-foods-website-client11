@@ -1,66 +1,90 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useParams } from "react-router-dom";
 import UseAuth from "../hook/useAuth";
 import Swal from 'sweetalert2';
 import DatePicker from "react-datepicker";
 import { Helmet } from "react-helmet-async"
 import "react-datepicker/dist/react-datepicker.css";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 
 const Update = () => {
     const {user} = UseAuth()
     const {id} = useParams();
-    const [food, setFood] = useState({});
+    // const [food, setFood] = useState({});
     const [startDate, setStartDate] = useState(new Date());
-    useEffect(() => {
-        fetch(`http://localhost:5001/addfood/${id}`)
-        .then(res => res.json())
-        .then(data => {
-            setFood(data)
-        })
-    },[id]);
-console.log(food)
-    const handleUpdateFood = async e => {
-        e.preventDefault()
-      
-        const foodName = e.target.foodName.value;
-        const foodImage = e.target.foodImage.value;
-       
-        const pickupLocation = e.target.pickupLocation.value;
-        const expiredDateTime =startDate
-        const additionalNotes = e.target.additionalNotes.value;
-        const email = e.target.email.value;
-        const name = e.target.email.value;
-      
+    const { data: food = [], isLoading, isError, error, refetch } = useQuery({
+        queryFn: () => getData(),
+        queryKey: ['food',],
+    });
 
-      const reqData ={
-        foodName,foodImage,pickupLocation,expiredDateTime,additionalNotes,
-        donator:
-        {email,name }
-      
-      }
-      console.log(reqData)
-      
-      try{
-        const {data} = await axios.put(`http://localhost:5001/addfood/${id}`,
-          reqData
-        )
-        console.log(data)
-        if(data.modifiedCount > 0){
+    const getData = async () => {
+
+        const { data } = await axios.get(`http://localhost:5001/addfood/${id}`);
+       return data
+    }
+
+    const {mutateAsync} = useMutation({   
+
+        mutationFn: async ({reqData}) => {
+            const { data } = await axios.put(`http://localhost:5001/addfood/${id}`, reqData);
+            return data;
+        },
+    onSuccess : (data) => {
+        console.log('wow, data updated')
+        if (data.modifiedCount > 0) {
             Swal.fire({
                 title: 'Success!',
                 text: 'Update Successfully',
                 icon: 'success',
                 confirmButtonText: 'Cool'
-              })}
+            });
+            // Perform any additional actions on success
+        }
+    },
+    onError: (error) => {
+        console.error(error);
+        Swal.fire({
+            title: 'Error!',
+            text: 'Something went wrong',
+            icon: 'error',
+            confirmButtonText: 'Try Again'
+        });
+    },
+        
+});
+
+ 
+console.log(food)
+    const handleUpdateFood = async e => {
+        e.preventDefault()
+        
+        const foodName = e.target.foodName.value;
+        const foodImage = e.target.foodImage.value;
+        const foodQuantity = e.target.foodQuantity.value;
+        const pickupLocation = e.target.pickupLocation.value;
+        const expiredDateTime =startDate
+        const additionalNotes = e.target.additionalNotes.value;
+        const email = user.email;
+        const name = user.displayName;
+        const foodStatus = e.target.foodStatus.value;
+        const donatorImage = user.photoURL;
+
+      const reqData ={
+        foodName,foodImage,pickupLocation,expiredDateTime,additionalNotes,foodQuantity,foodStatus,
+        donator:
+        {email,name ,donatorImage }
       
       }
-      catch(err){
-        console.log(err)
-      }
+      
+      mutateAsync({reqData});
+      
+      console.log(reqData)
      
       }
+      if (isLoading) return <div>Loading...</div>;
+      if (isError || error) return <div>Error: {error}</div>;
     return (
         <div className="container mx-auto mt-20 mb-20">
              <Helmet><title>FoodShare- Food</title></Helmet>
@@ -92,6 +116,10 @@ console.log(food)
         className="border p-2 rounded-md w-full"
         selected={startDate} onChange={(date) => setStartDate(date)} defaultValue={food.expiredDateTime}  />
                         </div>
+                        <div className="join flex-col gap-2 md:w-1/2">
+                            <label className="font-raleway font-bold text-xl">Food Status</label>
+                            <input className="input input-bordered join-item w-full" type="text" name="foodStatus" defaultValue={food.foodStatus} placeholder="Enter Pickup Location"/>
+                        </div>
                        
                         <div className="join flex-col gap-2 md:w-1/2">
                             <label className="font-raleway font-bold text-xl">Additional Notes</label>
@@ -110,7 +138,7 @@ console.log(food)
                             <input className="input input-bordered join-item w-full" name="name" value={`${user.displayName}`} disabled style={{ color: 'black' }}/>
                         </div>
                     </div>
-                    <input className="btn btn-block fomt-raleway font-bold mt-5 bg-green-800 hover:bg-green-900 text-white" type="submit" value="Add Food" />
+                    <input className="btn btn-block fomt-raleway font-bold mt-5 bg-green-800 hover:bg-green-900 text-white" type="submit" value="Update Food" />
      
        
                 </form>

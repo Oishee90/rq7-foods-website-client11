@@ -42,7 +42,7 @@ const MyRequest = () => {
     console.log(items);
 
     if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    if (isError || error) return <div>Error: {error}</div>;
     return (
         <div className="container mx-auto mt-24 bg-[#faebd9] min-h-screen">
             <Helmet><title>FoodShare-My Request Food</title></Helmet>

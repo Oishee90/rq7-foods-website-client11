@@ -30,7 +30,7 @@ const handleFormSubmit = async e => {
   const foodId = e.target._id.value;
   const foodName = e.target.foodName.value;
   const foodImage = e.target.foodImage.value;
-
+  const foodQuantity = food.foodQuantity;
   const pickupLocation = e.target.pickupLocation.value;
   const expiredDateTime = e.target.expiredDateTime.value;
   const additionalNotes = e.target.additionalNotes.value;
@@ -41,7 +41,7 @@ const handleFormSubmit = async e => {
   const foodStatus = "requested";
   const requestDate = startDate
 const reqData ={
-  foodId,foodName,foodImage,pickupLocation,expiredDateTime,additionalNotes,user_email,foodStatus,requestDate,
+  foodId,foodName,foodImage,pickupLocation,expiredDateTime,additionalNotes,user_email,foodStatus,requestDate,foodQuantity,
   donator:
   {email,name, donatorImage}
 
