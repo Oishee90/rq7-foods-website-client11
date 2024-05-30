@@ -19,7 +19,7 @@ const About = () => {
     return (
         <div className="container mx-auto  mt-10 mb-10 ">
           <div className='flex flex-col justify-center' data-aos="fade-up">
-                <h1 className='text-center  p-5 text-4xl font-oswald font-semiboldbold'>About Our Food</h1>
+                <h1 className='text-center  p-5 text-4xl font-oswald font-semiboldbold'>About Us</h1>
                 <div className='justify-center mx-auto border-b-2 h-px w-[81px]  border-green-700 mb-6'></div>
                 <p className='text-center p-5 mx-auto mb-6 text-lg font-raleway '> Discover our story, our values, and how you can join us in making a positive impact on the lives of individuals and families in need
                   </p>
